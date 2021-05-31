@@ -1,6 +1,6 @@
 {
-  "name": "fetch-polkadot-api",
-  "version": "1.0.0",
+  "name": "polkadot-api-cli",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
