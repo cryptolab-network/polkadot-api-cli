@@ -42,10 +42,11 @@ class CLI {
       if (err) {
         callback(err, null);
       } else {
-        console.log(`call ${cmd2}(${params})`);
         const result = await fn(...params);
-        callback(null, result?.toHuman());
-        // callback(null, result?.toJSON());
+
+        // TODO: config this
+        callback(null, result?.toJSON());
+        // callback(null, result?.toHuman());
       }
     } catch (e) {
       callback(e, null);
@@ -111,15 +112,17 @@ class CLI {
     if (!isFunction(fn)) {
       return [null, cmd, params, `${cmd} is not a function`];
     }
-
+    
     if (fn.meta.type.isPlain) {
       if (params.length !== 0) {
+        console.log(`API summary: ${fn.meta.documentation[0].toString()}`);
         return [null, cmd, params, `requiring 0 argument`];
       }
     }
 
     if (fn.meta.type.isMap) {
       if (params.length !== 1) {
+        console.log(`API summary: ${fn.meta.documentation[0].toString()}`);
         const { key } = fn.meta.type.asMap;
         return [null, cmd, params, `${cmd}(${key}) : require 1 argument, ${params.length} found.`];
       }
@@ -127,6 +130,7 @@ class CLI {
     
     if (fn.meta.type.isDoubleMap) {
       if (params.length !== 2) {
+        console.log(`API summary: ${fn.meta.documentation[0].toString()}`);
         const { key1, key2 } = fn.meta.type.asDoubleMap;
         return [null, cmd, params, `${cmd}(${key1}, ${key2}) : require 2 arguments, ${params.length} found.`];
       }

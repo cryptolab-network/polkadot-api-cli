@@ -3,9 +3,13 @@ import ApiHandler from './ApiHandler';
 import CLI from './CLI';
 
 const main = async (endpoint = 'wss://kusama-rpc.polkadot.io/') => {
-  const handler = await ApiHandler.create([endpoint]);
-  const cli = new CLI(handler, endpoint);
-  await cli.start();
+  try {
+    const handler = await ApiHandler.create([endpoint]);
+    const cli = new CLI(handler, endpoint);
+    await cli.start();
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 program
