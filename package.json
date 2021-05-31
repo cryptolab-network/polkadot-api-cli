@@ -1,0 +1,30 @@
+{
+  "name": "fetch-polkadot-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./dist/index.js",
+    "dev": "nodemon src/index.ts",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^15.6.1",
+    "nodemon": "^2.0.7",
+    "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/plugin-transform-flow-strip-types": "^7.13.0",
+    "@babel/preset-env": "^7.14.4",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@polkadot/api": "^4.11.2",
+    "@polkadot/types": "^4.12.1",
+    "@polkadot/util": "^6.6.1",
+    "commander": "^7.2.0"
+  }
+}
