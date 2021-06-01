@@ -2,7 +2,7 @@
 
 This project provides a developer tool for exploring the [Polkadot JS API](https://polkadot.js.org/docs/) in a much more effortless way.
 
-![demo4](https://user-images.githubusercontent.com/3665658/120153997-f7152700-c221-11eb-99c6-8541cff9d6ad.gif)
+![demo-final4](https://user-images.githubusercontent.com/3665658/120298985-23ea3c80-c2fd-11eb-8f04-08a78fbf85ce.gif)
 
 > Only support ```api.query.<module>.<method>``` right now. 
 
