@@ -21,6 +21,7 @@ class CLI {
   async start() {
     try {
       this._api = await this._handler.getApi();
+      console.log(`${this._api.libraryInfo} is loaded`);
       this._retriveMethod();
       this._repl = repl.start({
         prompt: `api-cli (${this._endpoint}) > `,
@@ -28,6 +29,7 @@ class CLI {
         completer: this._completer.bind(this),
       });
       this._repl.context.api = this._api;
+      
 
     } catch (e) {
       console.log(e);
@@ -64,12 +66,17 @@ class CLI {
 
   private _retriveMethod() {
     const types = ['rpc', 'consts', 'query', 'tx', 'derive'];
-    let modules = Object.keys(this._api.query);
-    for (let m of modules) {
-      const methods = Object.keys(this._api.query[m]);
-      for (let e of methods) {
-        this._methods.push(`api.query.${m}.${e}`);
+    let modules = Object.getOwnPropertyNames(this._api.query);
+
+    for (let i=0; i < modules.length; i++) {
+      const module = modules[i];
+      const methods = Object.getOwnPropertyNames(this._api.query[module]);
+
+      for (let j=0; j < methods.length; j++) {
+        const method = methods[j];
+        this._methods.push(`api.query.${module}.${method}`);
       }
+
     }
 
     // modules = Object.keys(this._api.derive);
