@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@polkadot/api": "^4.15.1",
-    "@polkadot/types": "^5.8.3",
+    "@polkadot/types": "^6.1.2",
     "@polkadot/util": "^6.6.1",
     "commander": "^7.2.0"
   }
